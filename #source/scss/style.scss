@@ -209,6 +209,7 @@ h2 {
 
 .metriki-tab__item {
     position: relative;
+    cursor: pointer;
 
     &.active {
         color: #5547D1;
