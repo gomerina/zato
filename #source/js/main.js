@@ -5,28 +5,14 @@ $(document).ready(function () {
     })
     $('.burger').on('click', function () {
         $('.header__menu').slideToggle(500);
-        $('.main-screen__content').find('h1').toggleClass('hidden')
+        $('.main-screen__content h1').toggleClass('hidden')
         $(this).toggleClass('active');
         $('.main-screen img').toggleClass('static');
+
     })
     window.addEventListener('resize', function () {
         mobMenu();
     })
-    //var circleSlider = new Swiper(".advantages__circle", {
-    //    spaceBetween: 0,
-    //    slidesPerView: 1,
-    //    slidesPerGroup: 1,
-    //    speed: 300,
-    //    watchSlidesProgress: true,
-    //    breakpoints: {
-    //        280: {
-    //            effect: "slide",
-    //        },
-    //        1360: {
-    //            effect: "fade",
-    //        },
-    //    },
-    //});
 
     var advantagesSlider = new Swiper(".advantages__inner", {
         spaceBetween: 30,

@@ -117,13 +117,15 @@ h1 {
   line-height: 54px;
   font-weight: 700;
   letter-spacing: -1.5px;
-  -webkit-transition: opacity 0.3s linear, visibility 0.3s linear;
-  transition: opacity 0.3s linear, visibility 0.3s linear;
+  -webkit-transition: 1.3s linear;
+  transition: 1.3s linear;
 }
 h1.hidden {
   opacity: 0;
   visibility: hidden;
   padding: 0;
+  -webkit-transition: none;
+  transition: none;
 }
 
 h2 {
@@ -736,10 +738,6 @@ h2 {
   }
   .header__menu a:not(:last-child) {
     margin: 0 0 23px 0;
-  }
-  .header__menu.active {
-    top: 0;
-    padding: 0px 0 60px 0;
   }
 
   .numbers-value {
