@@ -402,6 +402,7 @@ h2 {
         background: #FAE7DB;
         border-radius: 2px;
         position: relative;
+        transition: .3s linear;
 
         &:not(:last-child) {
             margin: 0 0 4px 0;

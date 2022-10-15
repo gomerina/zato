@@ -546,6 +546,8 @@ h2 {
   background: #FAE7DB;
   border-radius: 2px;
   position: relative;
+  -webkit-transition: 0.3s linear;
+  transition: 0.3s linear;
 }
 .burger span:not(:last-child) {
   margin: 0 0 4px 0;
