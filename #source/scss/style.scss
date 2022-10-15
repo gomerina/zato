@@ -16,7 +16,13 @@ h1 {
     line-height: 54px;
     font-weight: 700;
     letter-spacing: -1.5px;
-    margin: 0 0 111px 0;
+    transition: opacity .3s linear, visibility .3s linear;
+
+    &.hidden {
+        opacity: 0;
+        visibility: hidden;
+        padding: 0;
+    }
 }
 
 h2 {
@@ -28,6 +34,15 @@ h2 {
 
 .main-screen h1 {
     color: #fff;
+}
+
+.main-screen img {
+    padding: 111px 0 0 0;
+    transition: .3s linear;
+
+    &.static {
+        padding: 0;
+    }
 }
 
 .header {
@@ -61,6 +76,7 @@ h2 {
     margin: -144px 0 0 0;
     background: linear-gradient(175.65deg, #5547D1 13.45%, #0095FF 89.52%);
     padding: 313px 0 0px 0;
+    position: relative;
 
     & img {
         width: 100%;
@@ -145,21 +161,24 @@ h2 {
     display: flex;
     flex-direction: column;
     height: max-content;
+    cursor: pointer;
 }
 
 .advantages__item--red {
     background: #F2757D;
 }
 
-.advantages__circle {
-    width: 589px;
-    height: 589px;
-    border-radius: 50%;
+.advantages__circle-item {
     padding: 100px 85px;
     background: #715095;
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 50%;
+    opacity: 0;
+    visibility: hidden;
+    width: 589px;
+    height: 589px;
     position: absolute;
     top: -47px;
     right: -35px;
@@ -167,6 +186,25 @@ h2 {
     color: #fff;
     font-size: 16px;
     line-height: 19.5px;
+    transition: opacity .3s linear, visibility .3s linear;
+
+    &.active {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+.advantages__circle--red {
+    background: #F2757D;
+}
+
+.advantages__circle--purple {
+    background: #A672E1;
+}
+
+.advantages__circle--yellow {
+    background: #F0803B;
+
 }
 
 .advantages__item--purple {
@@ -186,6 +224,11 @@ h2 {
 
 .advantages__img {
     margin: 0 0 12px 0;
+
+    & img {
+        max-width: 100%;
+        max-height: 100%;
+    }
 }
 
 .advantages__text {
@@ -198,6 +241,7 @@ h2 {
 
 .metriki {
     padding: 164px 0 40px 0;
+    background: #fff;
 }
 
 .metriki-heading {
@@ -377,6 +421,7 @@ h2 {
     }
 }
 
+
 @media screen and (max-width: 1370px) {
     .advantages__inner {
         margin: 0 auto;
@@ -384,18 +429,93 @@ h2 {
         z-index: 4;
     }
 
-    .advantages__circle {
+    .advantages {
+        padding: 48px 0 400px 0;
+        overflow: hidden;
+    }
+
+    .advantages__circle-item {
         left: 50%;
         top: 50%;
         transform: translateX(-50%);
+        margin: 0;
     }
 
     .metriki {
-        padding: 400px 0 40px 0;
+        padding: 290px 0 40px 0;
+        position: relative;
+        margin: -307px 0 0 0;
+    }
+
+    .advantages__circle-item .advantages__circle-content {
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity .3s linear, visibility .3s linear;
+    }
+
+    .advantages__circle-item.active .advantages__circle-content {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .advantages__circle--red,
+    .advantages__circle--yellow,
+    .advantages__circle--purple {
+        background: none;
+
+        &::before {
+            content: '';
+            width: 100%;
+            height: 100%;
+            max-width: 0;
+            max-height: 0;
+            border-radius: 50%;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            transition: all .3s linear;
+            z-index: -1;
+            transform: translateX(200px);
+        }
+
+        &.active::before {
+            max-width: 100%;
+            max-height: 100%;
+            transform: translateX(0px);
+        }
+    }
+
+    .advantages__circle--red::before {
+        background: #F2757D;
+    }
+
+    .advantages__circle--yellow:before {
+        background: #F0803B;
+    }
+
+    .advantages__circle--purple:before {
+        background: #A672E1;
+    }
+
+    .advantages__circle--yellow {
+        padding: 100px 85px 100px 85px;
+        align-items: flex-end;
+        width: 577px;
+        height: 577px;
+    }
+
+    .advantages__circle--purple {
+        align-items: flex-end;
+        padding: 100px 85px 169px 85px;
+    }
+
+    .advantages__circle {
+        border-radius: 0;
+        top: 233px;
     }
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1220px) {
     .header__menu a:not(:last-child) {
         margin: 0 16px 0 0;
     }
@@ -433,6 +553,10 @@ h2 {
         }
     }
 
+    .main-screen {
+        padding: 221px 0 0 0;
+    }
+
     .mobile-bg {
         display: block;
     }
@@ -442,38 +566,46 @@ h2 {
     }
 
     .header__menu {
-        background: linear-gradient(175.65deg, #5547D1 13.45%, #0095FF 89.52%), url(../img/main-screen.png) no-repeat;
-        background-size: cover;
-        background-position: bottom center;
-        position: fixed;
-        min-height: 100vh;
-        height: 100%;
-        overflow: auto;
-        top: -100%;
-        left: 0;
+        //background: linear-gradient(175.65deg, #5547D1 13.45%, #0095FF 89.52%), url(../img/main-screen.png) no-repeat;
+        //background-size: cover;
+        //background-position: bottom center;
+        //position: fixed;
+        //min-height: 100vh;
+        //height: 100%;
+        //overflow: auto;
+        //top: -100%;
+        //left: 0;
         width: 100%;
-        display: flex;
-        flex-direction: column;
-        gap: 23px;
         font-weight: 700;
         text-align: center;
-        padding: 100px 0 60px 0;
+
         margin: 0;
-        transition: top .4s ease-in;
+        //transition: top .4s ease-in;
         z-index: 22;
+        display: none;
+        background: transparent;
+        //position: absolute;
+        //top: 313px;
+        //left: 0;
+        transition: padding .3s linear;
+
+        position: relative;
+        bottom: 111px;
 
         & a {
             display: block;
             position: relative;
             z-index: 4;
+            color: #fff;
 
             &:not(:last-child) {
-                margin: 0;
+                margin: 0 0 23px 0;
             }
         }
 
         &.active {
             top: 0;
+            padding: 0px 0 60px 0;
         }
     }
 
@@ -547,13 +679,15 @@ h2 {
         line-height: 19.5px;
     }
 
+    .advantages__item {
+        width: 195px;
+    }
+
     .metriki-tab__content {
         height: 300px;
     }
 
-    .main-screen {
-        padding: 221px 0 0 0;
-    }
+
 
     .offers {
         padding: 40px 0;
@@ -563,22 +697,30 @@ h2 {
         margin: 0 0 35px 0;
     }
 
-
-
-    .advantages__circle {
-        width: 100%;
-        height: auto;
-        border-radius: 0;
-        position: static;
-        transform: none;
-        padding: 0;
-        background: none;
-        color: #000000;
+    .advantages__item--purple {
+        top: 0;
+        bottom: 0;
     }
 
-    .metriki {
-        padding: 40px 0 0 0;
+    .advantages__item.swiper-slide-active {
+        min-height: 195px;
+        transform: translateY(-20px);
     }
+
+    //.advantages__circle {
+    //    width: 100%;
+    //    height: auto;
+    //    border-radius: 0;
+    //    position: static;
+    //    transform: none;
+    //    padding: 0;
+    //    background: none;
+    //    color: #000000;
+    //}
+
+    //.metriki {
+    //    padding: 40px 0 0 0;
+    //}
 
     .footer-contacts {
         margin: 0 0 40px 0;
@@ -680,6 +822,54 @@ h2 {
     }
 }
 
+@media screen and (max-width: 470px) {
+    .advantages__circle-item {
+        padding: 100px 151px;
+        align-items: flex-start;
+    }
+
+
+    .advantages__circle--red {
+        padding: 100px 114px 66px 115px;
+        width: 577px;
+        height: 577px;
+        align-items: center;
+    }
+
+    .advantages__circle--yellow {
+        padding: 100px 114px 66px 115px;
+        align-items: flex-end;
+        width: 577px;
+        height: 577px;
+    }
+
+    .advantages__item:before {
+        content: '';
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.38);
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 1;
+        visibility: visible;
+        transition: opacity .3s linear, visibility .3s linear;
+        border-radius: 20px;
+    }
+
+    .advantages__item.swiper-slide-active:before {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .advantages__circle--purple {
+        align-items: flex-end;
+        padding: 100px 101px 121px 107px;
+        width: 556px;
+        height: 556px;
+    }
+}
+
 @media screen and (max-width: 374px) {
     .metriki-tab__content {
         height: 220px;
@@ -687,5 +877,28 @@ h2 {
 
     .numbers-value {
         font-size: 36px;
+    }
+
+    .advantages__circle--red {
+        padding: 100px 143px 90px 143px;
+    }
+
+    .advantages__circle--yellow {
+        padding: 100px 143px 60px 143px;
+        top: 248px;
+    }
+
+    .advantages__circle--purple {
+        padding: 100px 135px 80px 135px;
+    }
+
+    .metriki {
+        padding: 334px 0 40px 0;
+    }
+
+    .advantages__circle--purple {
+        width: 577px;
+        height: 577px;
+        padding: 100px 143px 105px 143px;
     }
 }
