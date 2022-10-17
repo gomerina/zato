@@ -48,6 +48,7 @@ $(document).ready(function () {
     $('.advantages__item').on('click', function () {
         advantagesSlider.slideTo(($(this).index()), 800)
         $('.advantages__circle-item').eq($(this).index()).addClass('active').siblings().removeClass('active')
+        $(this).addClass('active').siblings().removeClass('active')
     })
     function mobMenu() {
         if (window.innerWidth <= 1023) {
