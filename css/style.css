@@ -181,6 +181,7 @@ h2 {
   background: linear-gradient(175.65deg, #5547D1 13.45%, #0095FF 89.52%);
   padding: 313px 0 0px 0;
   position: relative;
+  overflow: hidden;
 }
 .main-screen img {
   width: 100%;
@@ -837,6 +838,12 @@ h2 {
 
   .advantages__item {
     width: 195px;
+  }
+
+  .main-screen img {
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+    top: -53px;
   }
 
   .metriki-tab__content {

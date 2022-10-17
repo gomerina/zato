@@ -52,7 +52,9 @@
                     </h1>
                 </div>
             </div>
-            <img src="img/svg/main-screen.svg" alt="">
+            <div class="main-screen__img">
+                <img src="img/svg/main-screen.svg" alt="">
+            </div>
         </div>
         <div class="numbers">
             <div class="container">
@@ -508,16 +510,32 @@
                 <h2>Наши партнёры</h2>
                 <div class="footer__partners">
                     <a href="https://2ajaxs.com/" target="_blank">
-                        <img src="img/svg/p-1.svg" alt="">
+                        <picture>
+                            <source srcset="img/svg/f-1.svg" media="(max-width: 470px)">
+                            <source srcset="img/svg/p-1.svg" media="(min-width: 471px)">
+                            <img src="img/svg/p-1.svg" alt="">
+                        </picture>
                     </a>
                     <a href="https://store.sarov.info/" target="_blank">
-                        <img src="img/svg/p-2.svg" alt="">
+                        <picture>
+                            <source srcset="img/svg/f-2.svg" media="(max-width: 470px)">
+                            <source srcset="img/svg/p-2.svg" media="(min-width: 471px)">
+                            <img src="img/svg/p-2.svg" alt="">
+                        </picture>
                     </a>
                     <a href="https://umnoeradio.sarov.info/">
-                        <img src="img/p-1.png" alt="">
+                        <picture>
+                            <source srcset="img/f-3.png" media="(max-width: 470px)">
+                            <source srcset="img/p-1.png" media="(min-width: 471px)">
+                            <img src="img/p-1.png" alt="">
+                        </picture>
                     </a>
                     <a href="https://sarovradio.ru/">
-                        <img src="img/p-2.png" alt="">
+                        <picture>
+                            <source srcset="img/f-4.png" media="(max-width: 470px)">
+                            <source srcset="img/p-2.png" media="(min-width: 471px)">
+                            <img src="img/p-2.png" alt="">
+                        </picture>
                     </a>
                 </div>
             </div>
