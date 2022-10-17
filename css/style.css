@@ -582,10 +582,6 @@ h2 {
     text-align: center;
   }
 
-  .advantages__circle-item {
-    text-align: center;
-  }
-
   .advantages__item.active {
     -webkit-transform: translateY(-20px);
             transform: translateY(-20px);
