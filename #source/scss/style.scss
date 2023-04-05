@@ -288,7 +288,6 @@ h2 {
 
 .metriki-tab__content {
     display: none;
-    height: 659px;
     background: #EAEDF2;
 
     &.active {
@@ -296,8 +295,8 @@ h2 {
     }
 
     & img {
-        width: 100%;
-        height: 100%;
+        max-width: 100%;
+        max-height: 100%;
     }
 }
 
@@ -539,9 +538,6 @@ h2 {
         flex-direction: column;
     }
 
-    .metriki-tab__content {
-        height: 400px;
-    }
 }
 
 @media screen and (max-width: 1023px) {
@@ -688,9 +684,7 @@ h2 {
         top: -53px
     }
 
-    .metriki-tab__content {
-        height: 300px;
-    }
+
 
     .advantages__item.active {
         transform: none;
@@ -862,9 +856,7 @@ h2 {
 }
 
 @media screen and (max-width: 374px) {
-    .metriki-tab__content {
-        height: 220px;
-    }
+
 
     .numbers-value {
         font-size: 32px;
